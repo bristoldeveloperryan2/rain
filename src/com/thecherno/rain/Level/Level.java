@@ -4,9 +4,14 @@ import com.thecherno.rain.Graphics.Screen;
 
 public class Level {
 	
-	private int width, height;
-	private int[] tiles;
+	protected int width, height;
+	protected int[] tiles;
 	
+	/**
+	 * Generate a random level
+	 * @param width
+	 * @param height
+	 */
 	public Level(int width, int height){
 		this.width = width;
 		this.height = height;
@@ -21,7 +26,7 @@ public class Level {
 		loadLevel(path);
 	}
 	
-	private void generateLevel(){
+	protected void generateLevel(){
 		//
 	}
 	
