@@ -69,13 +69,13 @@ public class Game extends Canvas implements Runnable {
 	 */
 	@Override
 	public void run() {
+		requestFocus(); //from component, so we don't have to click to get focus
 		long lastTime = System.nanoTime();
 		long timer = System.currentTimeMillis();
 		final double ns = 1000000000.0 / 60.0; //ensures it's 60 fps
 		double delta = 0;
 		int frames = 0;
 		int updates = 0;
-		requestFocus(); //from component, so we don't have to click to get focus
 		while (running) {
 			long now = System.nanoTime();
 			delta += (now - lastTime) / ns;
