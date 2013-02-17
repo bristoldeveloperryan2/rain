@@ -1,11 +1,11 @@
-package com.thecherno.rain.input;
+package com.thecherno.rain.Input;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 public class Keyboard implements KeyListener {
 
-	private boolean[] keys = new boolean[65536]; //as many keys as we'll ever need, 120 is probably enough
+	private boolean[] keys = new boolean[200]; //as many keys as we'll ever need, 120 is probably enough, 65000ish max
 	public boolean up, down, left, right;
 	
 	public void update(){

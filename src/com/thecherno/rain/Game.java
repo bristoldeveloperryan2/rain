@@ -10,7 +10,7 @@ import java.awt.image.DataBufferInt;
 import javax.swing.JFrame;
 
 import com.thecherno.rain.Graphics.Screen;
-import com.thecherno.rain.input.Keyboard;
+import com.thecherno.rain.Input.Keyboard;
 
 public class Game extends Canvas implements Runnable {
 
