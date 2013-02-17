@@ -7,11 +7,14 @@ public class Tile {
 
 	public int x, y; //position
 	public Sprite sprite;
-	private boolean solid = false;
+	protected boolean solid = false;
+
+	public static Tile grass = new GrassTile(Sprite.grass);
 	
 	public Tile (Sprite sprite){
 		this.sprite = sprite;
 	}
+	
 	
 	public void render(int x, int y, Screen screen){
 		//
