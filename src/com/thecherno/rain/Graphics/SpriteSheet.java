@@ -8,9 +8,11 @@ import javax.imageio.ImageIO;
 public class SpriteSheet {
 
 	private String path;
-	private final int SIZE;
+	public final int SIZE;
 	public int[] pixels;
 	private boolean loaded = false;
+	
+	public static SpriteSheet tiles = new SpriteSheet("/textures/spritesheet.png", 256); //as res is in the build path we start at the item IN the res folder
 	
 	public SpriteSheet(String path, int size){
 		this.path = path;

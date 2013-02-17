@@ -75,6 +75,7 @@ public class Game extends Canvas implements Runnable {
 		double delta = 0;
 		int frames = 0;
 		int updates = 0;
+		requestFocus(); //from component, so we don't have to click to get focus
 		while (running) {
 			long now = System.nanoTime();
 			delta += (now - lastTime) / ns;

@@ -32,13 +32,12 @@ public class Screen {
 	
 	public void render(int xOffset, int yOffset){
 		for (int y = 0; y < this.height; y++){
-			int yy = y + yOffset;
+			int yp = y + yOffset;
+			if (yp < 0 || yp >= this.height) continue;
 			for (int x = 0; x < this.width; x++){
-				int xx = x + xOffset;
-				int tileIndexX = ((xx >> 4) & MAP_SIZE_MASK);
-				int tileIndexY = ((yy >> 4) & MAP_SIZE_MASK);
-				int tileIndex = tileIndexX + (tileIndexY * MAP_SIZE);
-				pixels[x + (y*width)] = tiles[tileIndex]; //0x tells it hexadecimal.. then the rest can be hex.. binary would be 0b but only in j7
+				int xp = x + xOffset;
+				if (xp < 0 || xp >= width) continue;
+				pixels[xp + yp * width] = Sprite.grass.pixels[(x&15) + (y&15) * Sprite.grass.SIZE];
 			}
 		}
 	}
