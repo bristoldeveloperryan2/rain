@@ -11,6 +11,7 @@ public class Tile {
 
 	public static Tile grass = new GrassTile(Sprite.grass);
 	public static Tile voidTile = new VoidTile(Sprite.voidSprite);
+	public String name = "Tile";
 	
 	public Tile (Sprite sprite){
 		this.sprite = sprite;

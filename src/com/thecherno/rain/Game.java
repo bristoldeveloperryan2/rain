@@ -11,6 +11,8 @@ import javax.swing.JFrame;
 
 import com.thecherno.rain.Graphics.Screen;
 import com.thecherno.rain.Input.Keyboard;
+import com.thecherno.rain.Level.Level;
+import com.thecherno.rain.Level.RandomLevel;
 
 public class Game extends Canvas implements Runnable {
 
@@ -22,6 +24,7 @@ public class Game extends Canvas implements Runnable {
 	private Thread thread;
 	private JFrame frame;
 	private Keyboard key;
+	private Level level;
 	private boolean running = false;
 	private static String title = "rain";
 
@@ -41,6 +44,7 @@ public class Game extends Canvas implements Runnable {
 		frame = new JFrame();
 		key = new Keyboard();
 		addKeyListener(key);
+		level = new RandomLevel(64,64);
 	}
 
 	/**
@@ -131,7 +135,8 @@ public class Game extends Canvas implements Runnable {
 		}
 		
 		screen.clear(); //otherwise animations will leave trails
-		screen.render(x, y);
+		level.render(x, y, screen);
+//		screen.render(x, y);
 		for (int i = 0; i < this.pixels.length; i++){
 			this.pixels[i] = screen.pixels[i];
 		}
