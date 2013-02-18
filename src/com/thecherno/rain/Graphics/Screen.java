@@ -13,6 +13,8 @@ public class Screen {
 	public int[] tiles = new int[MAP_SIZE * MAP_SIZE];
 	public String screenTitle = "";
 	
+	public int xOffset, yOffset;
+	
 	private Random random = new Random();
 	
 	
@@ -46,6 +48,8 @@ public class Screen {
 	
 	
 	public void renderTile(int xp, int yp, Tile tile){
+		xp -= xOffset;
+		yp -= yOffset;
 		for (int y=0; y < tile.sprite.SIZE; y++){
 			int ya = y + yp; //ya is absolute y value, yp is offset
 			for (int x=0; x < tile.sprite.SIZE; x++){
@@ -56,5 +60,8 @@ public class Screen {
 		}
 	}
 	
-	
+	public void setOffset(int xOffset, int yOffset){
+		this.xOffset = xOffset;
+		this.yOffset = yOffset;
+	}
 }
