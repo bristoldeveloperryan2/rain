@@ -1,5 +1,7 @@
 package com.thecherno.rain.Graphics;
 
+import java.awt.Color;
+
 public class Sprite {
 
 	public final int SIZE;
@@ -8,6 +10,7 @@ public class Sprite {
 	private SpriteSheet sheet;
 	
 	public static Sprite grass = new Sprite(16, 0,0, SpriteSheet.tiles); //this is bad. Temp, don't do it again.
+	public static Sprite voidSprite = new Sprite(16, 0x000000);
 	
 	public Sprite(int size, int x, int y, SpriteSheet sheet){
 		this.SIZE = size;
@@ -16,6 +19,18 @@ public class Sprite {
 		this.y = y * this.SIZE;
 		this.sheet = sheet;
 		load();
+	}
+	
+	public Sprite(int size, int colour){
+		SIZE = size;
+		pixels = new int[SIZE*SIZE];
+		setColour(colour);
+	}
+	
+	public void setColour(int colour){
+		for (int i = 0; i < SIZE * SIZE; i++){
+			pixels[i] = colour;
+		}
 	}
 	
 	private void load(){
