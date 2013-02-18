@@ -1,6 +1,7 @@
 package com.thecherno.rain.Level;
 
 import com.thecherno.rain.Graphics.Screen;
+import com.thecherno.rain.Level.Tile.Tile;
 
 public class Level {
 	
@@ -56,6 +57,20 @@ public class Level {
 		y0 = yScroll >> 4;
 		y1 = (yScroll + screen.height)>> 4; 
 		//end define render region
+	}
+	
+	/**
+	 * Using tile precision level, not pixel precision, for x and y
+	 * @param x
+	 * @param y
+	 * @return
+	 */
+	public Tile getTile(int x, int y){ //position of tile
+		//wouldn't a switch case be better?
+		if (tiles[x+y*width] == 0){
+			return Tile.grass;
+		}
+		return null;
 	}
 	
 }//class
