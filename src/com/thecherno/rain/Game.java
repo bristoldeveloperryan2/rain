@@ -1,6 +1,7 @@
 package com.thecherno.rain;
 
 import java.awt.Canvas;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
@@ -9,6 +10,7 @@ import java.awt.image.DataBufferInt;
 
 import javax.swing.JFrame;
 
+import com.thecherno.rain.Entity.Mob.Player;
 import com.thecherno.rain.Graphics.Screen;
 import com.thecherno.rain.Input.Keyboard;
 import com.thecherno.rain.Level.Level;
@@ -34,8 +36,7 @@ public class Game extends Canvas implements Runnable {
 			BufferedImage.TYPE_INT_RGB); // the final view we plan to render
 	private int[] pixels = ((DataBufferInt) image.getRaster().getDataBuffer()).getData(); //converting image into array of integers
 	
-	int x = 0;
-	int y = 0;
+	private Player player;
 	
 	public Game() {
 		Dimension size = new Dimension(width * scale, height * scale);
@@ -45,6 +46,7 @@ public class Game extends Canvas implements Runnable {
 		key = new Keyboard();
 		addKeyListener(key);
 		level = new RandomLevel(64,64);
+		player = new Player(key);
 	}
 
 	/**
@@ -105,18 +107,7 @@ public class Game extends Canvas implements Runnable {
 
 	public void update() {
 		key.update();
-		if (key.left){
-			x--;
-		}
-		if (key.right){
-			x++;
-		}
-		if (key.up){
-			y--;
-		}
-		if (key.down){
-			y++;
-		}
+		player.update();
 	}
 
 	public void render() {
@@ -135,7 +126,7 @@ public class Game extends Canvas implements Runnable {
 		}
 		
 		screen.clear(); //otherwise animations will leave trails
-		level.render(x, y, screen);
+		level.render(player.x, player.y, screen);
 //		screen.render(x, y);
 		for (int i = 0; i < this.pixels.length; i++){
 			this.pixels[i] = screen.pixels[i];
@@ -143,9 +134,14 @@ public class Game extends Canvas implements Runnable {
 		
 		Graphics g = bs.getDrawGraphics(); // Get a graphic area in which to
 											// draw from the buffer
-
+		
 		// graphics happen here
 		g.drawImage(image, 0, 0, getWidth(), getHeight(), null);
+
+		g.setColor(Color.RED);
+		g.fillRect(700, 400, 200, 50);
+		g.setColor(Color.WHITE);
+		g.drawString("Debug txt goes here", 720, 430);
 		
 		g.dispose();// cleans things up, gets rid of graphics and releases
 					// system resources
