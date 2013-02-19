@@ -75,13 +75,13 @@ public class Level {
 	 */
 	public Tile getTile(int x, int y){ //position of tile
 		//wouldn't a switch case be better?
+		if (x < 0 || y < 0 || x >= this.width || y >= this.height){
+			return Tile.voidTile;
+		}
 		int tileID = tiles[x+y*width];
-		System.out.println("X " + x + ", y " + y + " t " + tileID);
 		if (tileID == 0){
-			System.out.println("Render grass");
 			return Tile.grass;
 		}
-		System.out.println("Render void");
 		return Tile.voidTile;
 	}
 	
