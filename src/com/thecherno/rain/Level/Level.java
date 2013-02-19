@@ -54,12 +54,11 @@ public class Level {
 		screen.setOffset(xScroll, yScroll);
 		int x0, x1, y0, y1; //corner pins (ie x0,y0 = top left of screen, x1,y1 = bottom right of screen
 		x0 = xScroll >> 4; // / 16 so we get the pixel number from the tile number xScroll provides
-		x1 = (xScroll + screen.width) >> 4; //right shift makes smaller, left shift makes bigger
+		x1 = (xScroll + screen.width + 16) >> 4; //right shift makes smaller, left shift makes bigger
 		y0 = yScroll >> 4;
-		y1 = (yScroll + screen.height)>> 4; 
+		y1 = (yScroll + screen.height + 16) >> 4; 
 		//end define render region
 
-		int test = 0;
 		for (int y = y0; y < y1; y++){
 			for (int x = x0; x < x1; x++){
 				getTile(x, y).render(x, y, screen);
