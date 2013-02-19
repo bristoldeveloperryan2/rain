@@ -1,7 +1,7 @@
 package com.thecherno.rain.Entity.Mob;
 
-import java.awt.RenderingHints.Key;
-
+import com.thecherno.rain.Graphics.Screen;
+import com.thecherno.rain.Graphics.Sprite;
 import com.thecherno.rain.Input.Keyboard;
 
 public class Player extends Mob {
@@ -29,8 +29,11 @@ public class Player extends Mob {
 		}
 	}
 	
-	public void render(){
-		//
+	public void render(Screen screen){
+		screen.renderPlayer(x, y, Sprite.player0);
+		screen.renderPlayer(x+16, y, Sprite.player1);
+		screen.renderPlayer(x, y+16, Sprite.player2);
+		screen.renderPlayer(x+16, y+16, Sprite.player3);
 	}
 	
 }

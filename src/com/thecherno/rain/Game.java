@@ -126,7 +126,10 @@ public class Game extends Canvas implements Runnable {
 		}
 		
 		screen.clear(); //otherwise animations will leave trails
-		level.render(player.x, player.y, screen);
+		int xScroll = player.x - screen.width/2;
+		int yScroll = player.y - screen.height/2;
+		level.render(xScroll, yScroll, screen);
+		player.render(screen);
 //		screen.render(x, y);
 		for (int i = 0; i < this.pixels.length; i++){
 			this.pixels[i] = screen.pixels[i];
