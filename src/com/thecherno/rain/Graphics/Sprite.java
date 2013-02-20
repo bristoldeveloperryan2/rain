@@ -10,7 +10,7 @@ public class Sprite {
 	private SpriteSheet sheet;
 	
 	public static Sprite grass = new Sprite(16, 0,0, SpriteSheet.tiles); //this is bad. Temp, don't do it again.
-	public static Sprite voidSprite = new Sprite(16, 0xFFFFFF);
+	public static Sprite voidSprite = new Sprite(16, 0x336699);
 	
 	//player
 	public static Sprite player0 = new Sprite(16, 0, 1, SpriteSheet.tiles);
