@@ -53,15 +53,15 @@ public class Screen {
 	public void renderPlayer(int xp, int yp, Sprite sprite){
 		xp -= xOffset;
 		yp -= yOffset;
-		for (int y=0; y < 16; y++){
+		for (int y=0; y < sprite.SIZE; y++){
 			int ya = y + yp; //ya is absolute y value, yp is offset
-			for (int x=0; x < 16; x++){
+			for (int x=0; x < sprite.SIZE; x++){
 				int xa = x + xp;
-				if (xa < 0 - 16 || xa >= width || ya < 0 || ya >= height) break; //if it's off the screen, don't render it
+				if (xa < 0 - sprite.SIZE || xa >= width || ya < 0 || ya >= height) break; //if it's off the screen, don't render it
 				if (xa < 0){ xa = 0; }
-				int col = sprite.pixels [x + y * 16];
+				int col = sprite.pixels [x + y * sprite.SIZE];
 				if (col != 0x00FFFFFF){ //the first 00 is to deal with alpha being 00
-					pixels [xa + ya * width] = sprite.pixels[x+y*16];
+					pixels [xa + ya * width] = sprite.pixels[x+y*sprite.SIZE];
 				}
 			}
 		}
