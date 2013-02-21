@@ -80,6 +80,12 @@ public class Level {
 		int tileID = tiles[x+y*width];
 		if (tileID == 0){
 			return Tile.grass;
+		} else if (tileID == 1){
+			return Tile.flower;
+		} else if (tileID == 2){
+			return Tile.rock;
+		} else if (tileID == 3){
+			return Tile.orangeGrass;
 		}
 		return Tile.voidTile;
 	}

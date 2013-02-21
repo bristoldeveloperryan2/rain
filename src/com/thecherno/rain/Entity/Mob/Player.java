@@ -42,6 +42,7 @@ public class Player extends Mob {
 			walking = true;
 		} else {
 			walking = false;
+			anim = 0;
 		}
 	}
 	

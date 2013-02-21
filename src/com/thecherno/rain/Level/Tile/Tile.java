@@ -10,6 +10,9 @@ public class Tile {
 	protected boolean solid = false;
 
 	public static Tile grass = new GrassTile(Sprite.grass);
+	public static Tile rock = new RockTile(Sprite.rock);
+	public static Tile flower = new GrassTile(Sprite.flower);
+	public static Tile orangeGrass = new GrassTile(Sprite.orangeGrass);
 	public static Tile voidTile = new VoidTile(Sprite.voidSprite);
 	public String name = "Tile";
 	

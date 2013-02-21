@@ -10,6 +10,9 @@ public class Sprite {
 	private SpriteSheet sheet;
 	
 	public static Sprite grass = new Sprite(16, 0,0, SpriteSheet.tiles); //this is bad. Temp, don't do it again.
+	public static Sprite flower = new Sprite(16, 1, 0, SpriteSheet.tiles);
+	public static Sprite rock = new Sprite(16, 2, 0, SpriteSheet.tiles);
+	public static Sprite orangeGrass = new Sprite(16, 3, 0, SpriteSheet.tiles);
 	public static Sprite voidSprite = new Sprite(16, 0x336699);
 	
 	//player
